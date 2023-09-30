@@ -5,7 +5,11 @@ export default async () => {
 
   if (ics.ok) {
     console.log("success");
-    return new Response(await ics.blob());
+    return new Response(await ics.blob(), {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
   } else {
     console.error(ics);
     throw new Error("response not ok!");

@@ -67,7 +67,7 @@
       ></add-to-calendar-button>
   
       <!-- Copy -->
-      <add-to-calendar-button 
+      <!-- <add-to-calendar-button 
         name="LSLJ-3"
         startDate="2023-10-21"
         startTime="11:00"
@@ -86,7 +86,41 @@
         hideCheckmark
         size="0"
         label="Copy URL to Clipboard"
-      ></add-to-calendar-button>
+      ></add-to-calendar-button> -->
+
+      <a
+        style="color: inherit; font-size: 0.8rem; margin: 0 0.3rem;"
+        id="copy-url-to-clipboard"
+        href="https://bruno-embeds.netlify.app/perma/lslj-3.ics"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Copy URL to Clipboard</a>
+
+      <script>
+        let timeout = null;
+        let nextText = 'Copied!';
+        let toggleText = (target) => {
+          let currentText = target.innerHTML
+          target.innerHTML = nextText
+          nextText = currentText
+        }
+        
+        document.getElementById("copy-url-to-clipboard").addEventListener('click', (e) => {
+          e.preventDefault()
+          clearTimeout(timeout)
+          navigator.clipboard.writeText(e.target.href)
+            .then(() => {
+              toggleText(e.target)
+              timeout = setTimeout(() => {
+                toggleText(e.target)
+              }, 1000)
+            })
+            .catch((e) => {
+              console.error(e)
+              alert("could not copy '" + e.target.href + "' to clipboard")
+            })
+        })
+      </script>
   
     </div>
   </div>

@@ -4,9 +4,10 @@ export default async () => {
   );
 
   if (ics.ok) {
+    console.log("success");
     return new Response(await ics.blob());
+  } else {
+    console.error(ics);
+    throw new Error("response not ok!");
   }
-
-  console.error(ics);
-  throw new Error("response not ok!");
 };

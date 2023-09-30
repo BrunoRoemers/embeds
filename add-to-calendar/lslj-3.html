@@ -92,15 +92,25 @@
       <a
         id="dl-link"
         style="color: inherit; font-size: 0.8rem; margin: 0 0.3rem;"
-        href="https://bruno-embeds.netlify.app/perma/lslj-3.ics"
+        href="https://bruno-embeds.netlify.app/add-to-calendar/lslj-3?download=true"
         target="_blank" rel="noopener noreferrer"
       >Download .ICS</a>
       <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var link = document.createElement('a');
+            link.href = 'https://bruno-embeds.netlify.app/perma/lslj-3.ics';
+            link.download = 'lslj-3.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+      </script>
+      <!-- <script>
         document.getElementById('dl-link').addEventListener('click', function (e) {
           e.preventDefault();
           top.location.href = e.target.href;
         });
-      </script>
+      </script> -->
       <!-- <add-to-calendar-button 
         name="LSLJ-3"
         startDate="2023-10-21"

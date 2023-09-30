@@ -3,5 +3,10 @@ export default async () => {
     "https://calendar.google.com/calendar/ical/6b678d7a1fcaa8cbc8c4c3ec341cf24b9aa002eaff96c05cc7a730ecc61b8b51%40group.calendar.google.com/public/basic.ics"
   );
 
-  return new Response(await ics.blob());
+  if (ics.ok) {
+    return new Response(await ics.blob());
+  }
+
+  console.error(ics);
+  throw new Error("response not ok!");
 };

@@ -1,5 +1,3 @@
-[[redirects]]
-  from = "/perma/lslj-3.ics"
-  to = "https://calendar.google.com/calendar/ical/6b678d7a1fcaa8cbc8c4c3ec341cf24b9aa002eaff96c05cc7a730ecc61b8b51%40group.calendar.google.com/public/basic.ics"
-  status = 200
-  force = true
+[[edge_functions]]
+  path = "/perma/lslj-3.ics"
+  function = "lslj-3-ics"

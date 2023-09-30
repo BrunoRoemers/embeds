@@ -90,10 +90,17 @@
   
       <!-- Other -->
       <a
+        id="dl-link"
         style="color: inherit; font-size: 0.8rem; margin: 0 0.3rem;"
         href="https://bruno-embeds.netlify.app/perma/lslj-3.ics"
         target="_blank" rel="noopener noreferrer"
       >Download .ICS</a>
+      <script>
+        document.getElementById('dl-link').addEventListener('click', function (e) {
+          e.preventDefault();
+          top.location.href = e.target.href;
+        });
+      </script>
       <!-- <add-to-calendar-button 
         name="LSLJ-3"
         startDate="2023-10-21"

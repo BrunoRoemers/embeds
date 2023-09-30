@@ -8,6 +8,7 @@ export default async () => {
     return new Response(await ics.blob(), {
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Content-Disposition": 'attachment; filename="lslj-3.ics"',
       },
     });
   } else {
